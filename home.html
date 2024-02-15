@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Board Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="chessboard"></div>
+    <div id="pieces"></div>
+
+    <div id="highlight-controls">
+        <br>
+        <label for="inputBox">Enter Box: </label>
+        <input type="text" id="inputBox" placeholder="e.g., a1" onkeyup="checkEnterKey(event, highlightBox)">
+        <button onclick="highlightBox()">Highlight Box</button>
+
+        <br>
+
+        <!-- Add input for setting FEN position -->
+        <label for="inputFEN">Enter FEN Notation: </label>
+        <input type="text" id="inputFEN" placeholder="e.g., rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR" onkeyup="checkEnterKey(event, setFENPosition)">
+        <button onclick="setFENPosition()">Set FEN Position</button>
+
+        <!-- Button to get FEN notation -->
+        <button onclick="getFENPosition()">Get FEN</button>
+
+        <br>
+
+        <!-- Add input for selecting active color -->
+        <label for="activeColor">Active Color: </label>
+        <select id="activeColor">
+            <option value="w">White</option>
+            <option value="b">Black</option>
+        </select>
+
+        <br>
+        
+        <!-- Add input for moving pieces -->
+        <label for="inputMove">Move Piece: </label>
+        <input type="text" id="inputMove" placeholder="e.g., e2 e4" onkeyup="checkEnterKey(event, movePiece)">
+        <button onclick="movePiece()">Move</button>
+
+        <br>
+
+    </div>
+
+    <script src="chessboard.js"></script>
+    <script>
+        // Function to check if the "Enter" key is pressed and trigger the associated function
+        function checkEnterKey(event, func) {
+            if (event.key === "Enter") {
+                func();
+            }
+        }
+    </script>
+</body>
+</html>
