@@ -9,41 +9,40 @@
 <body>
     <div id="chessboard"></div>
     <div id="pieces"></div>
-
+    
     <div id="highlight-controls">
-        <br>
-        <label for="inputBox">Enter Box: </label>
-        <input type="text" id="inputBox" placeholder="e.g., a1" onkeyup="checkEnterKey(event, highlightBox)">
-        <button onclick="highlightBox()">Highlight Box</button>
+        <!-- Highlight Box Section -->
+        <div>
+            <label for="inputBox">Enter Box: </label>
+            <input type="text" id="inputBox" placeholder="e.g., a1" onkeyup="checkEnterKey(event, highlightBox)">
+            <button onclick="highlightBox()">Highlight Box</button>
+        </div>
 
-        <br>
+        <!-- Set FEN Position Section -->
+        <div>
+            <label for="inputFEN">Enter FEN Notation: </label>
+            <input type="text" id="inputFEN" placeholder="e.g., rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR" onkeyup="checkEnterKey(event, setFENPosition)">
+            <button onclick="setFENPosition()">Set FEN Position</button>
 
-        <!-- Add input for setting FEN position -->
-        <label for="inputFEN">Enter FEN Notation: </label>
-        <input type="text" id="inputFEN" placeholder="e.g., rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR" onkeyup="checkEnterKey(event, setFENPosition)">
-        <button onclick="setFENPosition()">Set FEN Position</button>
+            <!-- Get FEN Button -->
+            <button onclick="getFENPosition()">Get FEN</button>
+        </div>
 
-        <!-- Button to get FEN notation -->
-        <button onclick="getFENPosition()">Get FEN</button>
+        <!-- Active Color Section -->
+        <div>
+            <label for="activeColor">Active Color: </label>
+            <select id="activeColor">
+                <option value="w">White</option>
+                <option value="b">Black</option>
+            </select>
+        </div>
 
-        <br>
-
-        <!-- Add input for selecting active color -->
-        <label for="activeColor">Active Color: </label>
-        <select id="activeColor">
-            <option value="w">White</option>
-            <option value="b">Black</option>
-        </select>
-
-        <br>
-        
-        <!-- Add input for moving pieces -->
-        <label for="inputMove">Move Piece: </label>
-        <input type="text" id="inputMove" placeholder="e.g., e2 e4" onkeyup="checkEnterKey(event, movePiece)">
-        <button onclick="movePiece()">Move</button>
-
-        <br>
-
+        <!-- Move Piece Section -->
+        <div>
+            <label for="inputMove">Move Piece: </label>
+            <input type="text" id="inputMove" placeholder="e.g., e2 e4" onkeyup="checkEnterKey(event, movePiece)">
+            <button onclick="movePiece()">Move</button>
+        </div>
     </div>
 
     <script src="chessboard.js"></script>
